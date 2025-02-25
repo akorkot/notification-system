@@ -1,0 +1,33 @@
+<div class="notification-container">
+    <div class="notification-header">
+      <h2>Notifications en temps réel</h2>
+      <div class="connection-status" [class.connected]="isConnected">
+        {{ isConnected ? 'Connecté' : 'Déconnecté' }}
+      </div>
+    </div>
+  
+    <div class="notification-actions">
+      <button class="test-button" (click)="testWebhook()">
+        Tester le webhook
+      </button>
+    </div>
+  
+    <div class="notification-list">
+      <div *ngIf="notifications.length === 0" class="no-notifications">
+        Aucune notification reçue. Cliquez sur "Tester le webhook" pour essayer.
+      </div>
+  
+      <div *ngFor="let notification of notifications; let i = index" class="notification-card">
+        <div class="notification-header">
+          <span class="notification-type">{{ notification.type }}</span>
+          <span class="notification-time">{{ formatDate(notification.timestamp) }}</span>
+          <button class="close-button" (click)="removeNotification(i)">×</button>
+        </div>
+        
+        <div class="notification-content">
+          <p *ngIf="notification.message">{{ notification.message }}</p>
+          <pre *ngIf="notification.data">{{ notification.data | json }}</pre>
+        </div>
+      </div>
+    </div>
+  </div>

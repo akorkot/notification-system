@@ -1,0 +1,32 @@
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #3f51b5;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    h1 {
+        margin: 0;
+        font-size: 24px;
+    }
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+footer {
+    padding: 15px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+}
